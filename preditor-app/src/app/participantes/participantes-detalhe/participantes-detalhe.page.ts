@@ -23,7 +23,7 @@ export class ParticipantesDetalhePage implements OnInit {
   ngOnInit() {
     this.id = this.activeRoute.snapshot.params['id'];
     if(this.id) {
-      this.participanteService.getParticipante(this.id).then(participante => {
+      this.participanteService.getParticipanteLocal(this.id).then(participante => {
         this.participante = participante;
       });
     }
@@ -31,11 +31,11 @@ export class ParticipantesDetalhePage implements OnInit {
 
   saveParticipante(){
     if(this.id) {
-        this.participanteService.saveParticipante(this.participante).then(response => {
+        this.participanteService.updateParticipanteLocal(this.participante).then(response => {
             this.navController.back();
         });
     } else {
-      this.participanteService.createParticipante(this.participante).then(response => {
+      this.participanteService.insereParticipanteLocal(this.participante).then(response => {
           this.navController.back();
       });
     }

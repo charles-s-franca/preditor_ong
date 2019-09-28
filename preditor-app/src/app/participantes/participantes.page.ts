@@ -27,6 +27,10 @@ export class ParticipantesPage implements OnInit {
 
   }
 
+  ionViewWillEnter() {
+    this.getParticipantes();
+  }
+
   ngOnInit(): void {
     //  for (let i = 0; i < 10; i++) {
     //    const participante: Participante = {} as Participante;
@@ -41,7 +45,7 @@ export class ParticipantesPage implements OnInit {
   }
 
   getParticipantes(busca?) {
-    this.participanteService.getParticipantes(busca).then(response => {
+    this.participanteService.getParticipantesLocal(busca).then(response => {
       this.participantes = response as Array<Participante>;
       this.participantesFiltrados = this.participantes;
     });

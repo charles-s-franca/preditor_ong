@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ParticipanteService } from './shared/services/participante.service';
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +25,8 @@ import { ParticipanteService } from './shared/services/participante.service';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    ParticipanteService
+    ParticipanteService,
+    SQLite
   ],
   bootstrap: [AppComponent]
 })
