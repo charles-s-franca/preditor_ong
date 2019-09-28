@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Participantes
+    </ion-title>
+    <ion-buttons slot="end">
+        <span (click)="navigateToDetails()">
+            <ion-icon slot="start" name="person"></ion-icon> 
+        </span>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="search">
+    <input type="text" #nomeFiltro (keyup)="buscaParticipante(nomeFiltro.value)">
+  </div>
+  <div class="participantes">
+    <div class="participante-card" *ngFor="let participante of participantes" (click)="navigateToDetails(participante.id)">
+      <div class="item">
+        <label>Matricula: </label> {{ participante.matricula }}
+      </div>
+      <div class="item">
+        <label>Sigla: </label> {{ participante.sigla }}
+      </div>
+      <div class="item">
+        <label>Nascimento: </label> {{ participante.nascimento}}
+      </div>
+      <div class="item">
+        <label>ID: </label> {{ participante.id }}
+      </div>
+    </div>
+
+  </div>
+</ion-content>

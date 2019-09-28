@@ -1,0 +1,8 @@
+{
+  "name": "preditorapp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "1c7e22ac"
+}

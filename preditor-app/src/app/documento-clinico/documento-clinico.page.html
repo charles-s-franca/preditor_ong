@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      DOCUMENTO
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main-content">
+        <ion-item-divider>
+          <div class="documentoInicio">
+            <label>Estudo</label>
+          </div>
+        </ion-item-divider>
+         <div class="search">
+            <ngx-select-dropdown [config]="config" [options]="instituicao" [(ngModel)]="instituicao"
+              (change)="InstituicaoSelecionado($event)" [multiple]="false">
+            </ngx-select-dropdown>
+         </div>
+        <ion-item-divider>
+          <div class="documentoInicio">
+            <label>Instituição</label>
+          </div>
+        </ion-item-divider>
+         <div class="search">
+            <ngx-select-dropdown [config]="config" [options]="estudo" [(ngModel)]="estudo"
+              (change)="estudoSelecionado($event)" [multiple]="false">
+            </ngx-select-dropdown>
+         </div>
+       <ion-item-divider>
+        <div class="documentoInicio">
+          <label>Participante</label>
+        </div>
+      </ion-item-divider>
+       <div class="search">
+          <ngx-select-dropdown [config]="config" [options]="participantes" [(ngModel)]="participante"
+            (change)="participanteSelecionado($event)" [multiple]="false">
+          </ngx-select-dropdown>
+       </div>
+      <ion-item-divider>
+         <div class="documentoInicio">
+            <label>Tipo de Documento</label>
+         </div>
+      </ion-item-divider>
+        <div class="search">
+          <ngx-select-dropdown [config]="config" [options]="tipoDocumento" [(ngModel)]="tipoDocumento"
+                               (change)="tipoDocumentoSelecionado($event)" [multiple]="false">
+          </ngx-select-dropdown>
+        </div>
+      <ion-item-divider>
+        <div class="documentoInicio">
+          <label>Avaliação</label>
+        </div>
+     </ion-item-divider>
+
+    <div class="search">
+        <ngx-select-dropdown [config]="config" [options]="avaliacao" [(ngModel)]="avaliacao"
+                             (change)="avaliacaoSelecionada($event)" [multiple]="false">
+        </ngx-select-dropdown>
+    </div>
+
+    <ion-item-divider>
+        <div class="documentoInicio">
+            <label>Participação</label>
+        </div>
+    </ion-item-divider>
+    <div class="search">
+        <ngx-select-dropdown [config]="config" [options]="participacao" [(ngModel)]="participacao"
+                             (change)="participacaoSelecionada($event)" [multiple]="false">
+        </ngx-select-dropdown>
+    </div>
+    <ion-item-divider></ion-item-divider>
+    <div align="right" class="search">
+        <label class="usuario">Nome Usuário Logado&nbsp;</label>
+        <ion-button (click)="saveDocument()">Enviar</ion-button>
+    </div>
+  </div>
+</ion-content>
+

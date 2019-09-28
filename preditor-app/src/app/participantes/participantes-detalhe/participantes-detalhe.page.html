@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>Detalhe</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+<ion-content>
+    <div>
+      <p>
+        <input type="text" [(ngModel)]="participante.matricula">
+      </p>
+      <p>
+        <input type="text" [(ngModel)]="participante.sigla">
+      </p>
+      <p>
+        <input type="text" [(ngModel)]="participante.nascimento">
+      </p>
+    </div>
+    <button (click)="saveParticipante()">
+      Gravar
+    </button>
+  </ion-content>
+  
