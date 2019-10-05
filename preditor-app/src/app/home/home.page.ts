@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Participante } from '../shared/models/participante';
 import { ParticipanteService } from '../shared/services/participante.service';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,8 @@ export class HomePage implements OnInit {
   participantesFiltrados: Array<Participante> = [];
 
   constructor(
-    private participanteService: ParticipanteService
+    private participanteService: ParticipanteService,
+    public menuCtrl: MenuController,
   ) {}
 
   ngOnInit(): void {
@@ -30,6 +32,10 @@ export class HomePage implements OnInit {
       this.participantesFiltrados = this.participantes;
     });
   }
+
+  ionViewWillEnter() {
+    this.menuCtrl.enable(true);
+    }
 
   buscaParticipante(busca: string) {
     if (!busca) {

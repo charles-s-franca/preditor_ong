@@ -8,9 +8,11 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ParticipanteService } from './shared/services/participante.service';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
+import { AuthService } from './shared/services/auth.service';
+import { RequestinterceptorService } from './shared/interceptors/requestinterceptor.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +28,9 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     ParticipanteService,
-    SQLite
+    SQLite,
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: RequestinterceptorService, multi: true }
   ],
   bootstrap: [AppComponent]
 })

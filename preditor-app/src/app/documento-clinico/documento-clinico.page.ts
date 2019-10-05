@@ -19,9 +19,25 @@ export class DocumentoClinicoPage implements OnInit {
     searchOnKey: 'sigla'
   };
 
+  configInst = {
+    displayKey: 'name',
+    search: true,
+    height: 'auto',
+    placeholder: 'Select...',
+    customComparator: () => {},
+    moreText: 'mais',
+    noResultsFound: 'Nenhum resultado encontrado!',
+    searchPlaceholder: 'Search...',
+    searchOnKey: 'name'
+  };
+
   participante;
   participantes = [];
   currentStep = 1;
+  instituicao: any;
+  instituicoes = [
+      {name: 'test', id: 1}, {name: 'test2', id: 2}
+  ];
 
   constructor(
     private participanteService: ParticipanteService
@@ -53,5 +69,9 @@ export class DocumentoClinicoPage implements OnInit {
       participanteId : this.participante.id
     };
     console.log(doc);
+  }
+
+  InstituicaoSelecionado(item) {
+    console.log(this.instituicao);
   }
 }

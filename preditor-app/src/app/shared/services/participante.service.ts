@@ -13,25 +13,29 @@ export class ParticipanteService {
     private http: HttpClient,
     private sqlite: SQLite
   ) {
-    this.sqlite.create({
-        name: 'preditor.db',
-        location: 'default'
-      }).then((db: SQLiteObject) => {
-        this.db = db;
-        db.executeSql(`
-            create TABLE IF NOT EXISTS participante(
-              id INTEGER PRIMARY KEY AUTOINCREMENT,
-              sigla varchar(30),
-              matricula varchar(30),
-              nascimento varchar(10)
-            )
-          `, [])
-          .then(() => {
-            console.log('Executed SQL');
+    try {
+        this.sqlite.create({
+            name: 'preditor.db',
+            location: 'default'
+          }).then((db: SQLiteObject) => {
+            this.db = db;
+            db.executeSql(`
+                create TABLE IF NOT EXISTS participante(
+                  id INTEGER PRIMARY KEY AUTOINCREMENT,
+                  sigla varchar(30),
+                  matricula varchar(30),
+                  nascimento varchar(10)
+                )
+              `, [])
+              .then(() => {
+                console.log('Executed SQL');
+              })
+              .catch(e => console.log(e));
           })
-          .catch(e => console.log(e));
-      })
-        .catch(e => console.log(e));
+            .catch(e => console.log(e));
+    } catch (error) {
+        console.log(error)
+    }
   }
 
   async getDb() {
